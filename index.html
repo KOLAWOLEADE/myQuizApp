@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="Quiz">
+ <body>
+    <!-- <div class="Quiz">
     <div class="SIGN">
         <form class="form-control" id="Log-in">
             <label class="Name">User Name</label><br>
@@ -34,19 +34,25 @@
         </form>
 
     </div>
-    </div>
+    </div> -->
 
-    <div class="container" class="hide">
-        <div class="Question">
-            <P>1  What year did Nigeria gain independence</P>
-        
-        <div class="Answer">
-            <p><input type="checkbox" name="Answer" id="Answer">A 1960</p>
-            <p><input type="checkbox" name="Answer" id="Answer">B 1906</p>
-            <p><input type="checkbox" name="Answer" id="Answer">C 1958</p>
-            <p><input type="checkbox" name="Answer" id="Answer">D 1963</p>
+     <!-- Question and Answer -->
+
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+           
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn">Answer 1</button>  
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
 
+    </div>
+    <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
     </div>
 </div>
 
