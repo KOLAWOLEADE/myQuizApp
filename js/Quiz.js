@@ -1,8 +1,21 @@
-const Question = $(".Question").val();
+const startButton = document.getElementById("start-btn")
+const questionContainerElement = document.getElementById("questionContainer")
+const questionElement = document.getElementById("question")
+const answerButtonsElement = document.getElementById{"answer-buttons"}
+startButton.addEventListener("click", startGame)
 
+function startGame(){
+    console.log("Started")
+    startButton.classList.add("hide")
+    shuffledQuestions = question.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerElement.classList.remove("hide")
+    setNextQuestion()
+}
 
-
-
+function setNextQuestion() {
+    showQeustion(shuffledQuestions[currentQuestionIndex])
+}
 
 function selectAnswer(){
 
@@ -14,6 +27,7 @@ function nextQuestion (){
 
 
 function showQeustion(){
+    questionContainerElement.innerText = question.question
 
 }
 
