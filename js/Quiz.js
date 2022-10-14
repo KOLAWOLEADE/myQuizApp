@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start-btn")
+const nextButton = document.getElementById("next-btn")
 const questionContainerElement = document.getElementById("questionContainer")
 const questionElement = document.getElementById("question")
 const answerButtonsElement = document.getElementById{"answer-buttons"}
@@ -6,9 +7,12 @@ const answerButtonsElement = document.getElementById{"answer-buttons"}
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener("click", startGame)
+nextButton.addEventListener("click", () => {
+   currentQuestionIndex++
+   setNextQuestion() 
+})
 
 function startGame(){
-    console.log("Started")
     startButton.classList.add("hide")
     shuffledQuestions = question.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -17,6 +21,7 @@ function startGame(){
 }
 
 function setNextQuestion() {
+    resetState()
     showQeustion(shuffledQuestions[currentQuestionIndex])
 }
 
@@ -41,17 +46,42 @@ function resetState() {
     }
 }
 
-function selectAnswer () {
-
+function selectAnswer (e) {
+const selectedButton = e.target
+const correct = selectedButton.dataset.correct
+setStatusClass(document.body, correct)
+Array.from(answerButtonsElement.children).forEach(button =>{
+    setStatusClass(button.dataset.correct)
+})
+if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide")
+}else{
+    startButton.innerText = "Restart"
+    startButton.classList.remove("hide")
+}
 }
 
-const question = [
-    {
-        question: "What year did Nigeria gain independence?", Answers: [
-            { text: "1960", correct: true}
-            { text: "1906", correct: false}
-            { text: "1958", correct: false}
-            { text: "1963", correct: false}
-        ]
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if(correct) {
+        element.classList.add("correct")
+    }else {
+        element.classList.add("wrong")
     }
-]
+}
+
+function clearStatusClass(element) {
+    element.classList.remove("correct")
+    element.classList.remove("wrong")
+}
+
+// const question = [
+//     {
+//         question: "What year did Nigeria gain independence?", Answers: [
+//             { text: "1960", correct: true}
+//             { text: "1906", correct: false}
+//             { text: "1958", correct: false}
+//             { text: "1963", correct: false}
+//         ]
+//     }
+// ]
