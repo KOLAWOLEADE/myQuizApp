@@ -2,7 +2,7 @@ const startButton = document.getElementById("start-btn")
 const nextButton = document.getElementById("next-btn")
 const questionContainerElement = document.getElementById("questionContainer")
 const questionElement = document.getElementById("question")
-const answerButtonsElement = document.getElementById{"answer-buttons"}
+const answerButtonsElement = document.getElementById("answer-buttons")
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -40,6 +40,7 @@ function showQeustion(){
 }
 
 function resetState() {
+    clearStatusClass(document.body)
     nextButton.classList.add("hide")
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
